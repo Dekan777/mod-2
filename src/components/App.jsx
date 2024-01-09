@@ -1,15 +1,17 @@
-import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const handleClick1 = () => {
+    alert("Hello I'm button");
+  };
 
+  const handleClick2 = (evt) => {
+    console.log(evt);
+  };
   return (
     <>
-      <p>mod-2</p>
-      <div className="card">
-        <button>count</button>
-      </div>
+      <button onClick={handleClick1}>handleClick1</button>
+      <button onClick={handleClick2}>handleClick2</button>
     </>
   );
 }
