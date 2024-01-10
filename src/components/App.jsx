@@ -1,20 +1,14 @@
 import { useState, useEffect } from "react";
 // import { Modal } from "./Modal/Modal";
+
 import "./App.css";
 
-function App() {
+const App = () => {
   const [clicks, setClicks] = useState(() => {
-    // Зчитуємо значення за ключем
     const savedClicks = window.localStorage.getItem("saved-clicks");
-
-    // Якщо там щось є, повертаємо це
-    // значення як початкове значення стану
     if (savedClicks !== null) {
-      return savedClicks;
+      return parseInt(savedClicks, 10); // Преобразование строки в число
     }
-
-    // У протилежному випадку повертаємо
-    // яке-небудь значення за замовчуванням
     return 0;
   });
 
@@ -30,6 +24,6 @@ function App() {
       <button onClick={() => setClicks(0)}>Reset</button>
     </div>
   );
-}
+};
 
 export default App;
