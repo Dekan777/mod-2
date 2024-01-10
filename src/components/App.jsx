@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import "./App.css";
 import { CustomButton } from "./CustomButton/CustomButton";
+import { ClickCounter } from "./ClickCounter/ClickCounter";
+
 function App() {
   const handleClick1 = () => {
     alert("Hello I'm button");
@@ -20,6 +22,7 @@ function App() {
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
+
   return (
     <>
       <button onClick={handleClick1}>handleClick1</button>
@@ -28,6 +31,8 @@ function App() {
       <button onClick={handleClick4}>Current: {clicks}</button>
       <button onClick={handleToggle}>{isOpen ? "Hide" : "Show"}</button>
       {isOpen && <div>Now you can see me!</div>}
+      <ClickCounter />
+      <ClickCounter />
     </>
   );
 }
