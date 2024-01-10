@@ -1,20 +1,16 @@
-import { useState, useEffect } from "react";
-
+import { useState } from "react";
+import { Modal } from "./Modal/Modal";
 import "./App.css";
 
 function App() {
-  const [clicks, setClicks] = useState(0);
-
-  // Оголошуємо ефект
-  useEffect(() => {
-    console.log(`${clicks}`);
-  });
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <button onClick={() => setClicks(clicks + 1)}>
-        You clicked {clicks} times
+      <button onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? "Close" : "Open"}
       </button>
+      {isOpen && <Modal />}
     </>
   );
 }
