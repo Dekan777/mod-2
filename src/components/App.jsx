@@ -1,6 +1,6 @@
 import { useState } from "react";
-
 import "./App.css";
+
 import { CustomButton } from "./CustomButton/CustomButton";
 import { ClickCounter } from "./ClickCounter/ClickCounter";
 
@@ -23,6 +23,23 @@ function App() {
     setIsOpen(!isOpen);
   };
 
+  const [clicks2, setClicks2] = useState(0);
+  const handleClick = () => {
+    setClicks2(clicks2 + 1);
+  };
+
+  const ClickCounter2 = () => {
+    return <button onClick={handleClick}>CurrentAll: {clicks2}</button>;
+  };
+
+  const [clicks5, setClicks5] = useState(0);
+  const handleClick5 = () => {
+    setClicks5(clicks5 + 1);
+  };
+  const ClickCounter5 = ({ value, onUpdate }) => {
+    return <button onClick={onUpdate}>CurrentAll2: {value}</button>;
+  };
+
   return (
     <>
       <button onClick={handleClick1}>handleClick1</button>
@@ -33,6 +50,10 @@ function App() {
       {isOpen && <div>Now you can see me!</div>}
       <ClickCounter />
       <ClickCounter />
+      <ClickCounter2 />
+      <ClickCounter2 />
+      <ClickCounter5 value={clicks5} onUpdate={handleClick5} />
+      <ClickCounter5 value={clicks5} onUpdate={handleClick5} />
     </>
   );
 }
